@@ -12,4 +12,7 @@ FROM scratch
 WORKDIR /app
 COPY --from=builder /tmp/api-server /app/api-server
 
+RUN echo build:2000:50000 > /etc/subuid \
+ && echo build:2000:50000 > /etc/subgid
+
 CMD [ "/app/api-server" ]
